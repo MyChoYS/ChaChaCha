@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block headcontent %}
+<title>시험장 후기 목록/title>
+{% endblock %}
+{% block css %}
+  .b2{
+    border: 0;
+  }
+  .b2:hover{
+    background-color: #ff6360;
+    color : white;
+  }
+{% endblock %}
+{% block content %}
+{% load static %}
+
+{% if review %}
+<style>
+@import url('https://fonts.googleapis.com/css?family=Nanum+Brush+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR:200,300,400,500,600,700,900&display=swap');
+</style>
+
+<main class="" id="main-collapse">
+  <div class="row">
+    <div class="col-xs-8 section-container-spacer">
+      <h1>시험장 후기 수정</h1>
+      <p>시험장 후기를 수정해 봅시다!</p>
+      <hr>
+    </div>
+  </div>
+
+  <form method="POST" action="{% url 'update_testsite2' review.pk %}">
+    {% csrf_token %}
+      <label for="t_name">시험장</label>
+      <select id="t_name" class="form-control" name="t_name" required>
+        <option value="none">=== 시험장명 ===</option>
+      </select>
+      <br>
+      <label for="InputTitle">제목</label>
+      <input type="text" class="form-control" id="InputTitle" name="title" placeholder="title" value="{{ review.title }}" required><br>
+      <label for="InputContent">내용</label>
+      <textarea id="InputContent" class="form-control" rows="3" name="content" placeholder="content" required>{{ review.content }}</textarea><br>
+      <label for="InputPassword">비밀번호</label>
+      <input type="password" class="form-control" id="InputPassword" name="password" placeholder="password" required><br>
+      {% if msg %}
+      <div class="alert alert-danger" role="alert">{{ msg }}</div>
+      {% endif %}
+      <br>
+      <button class="b2" type="submit" value="Submit">수정완료</button>
+      <button class="b2" type="reset" value="Reset">재작성</button>
+  </form>
+</main>
+{% endif %}
+
+<script>
+  $(document).ready(function() {
+    var target = $('#t_name');
+
+    $.getJSON("{% url 'get_testsite_name' %}", function(jsonObj){
+      if(jsonObj.length!=0){
+        for(let i in jsonObj.nameList)
+          target.append("<option value="+ jsonObj.nameList[i] +">"+ jsonObj.nameList[i] + "</option>");
+        $('#t_name').val("{{ review.testsite_id.name }}").prop("selected", true);
+      }
+    });
+  });
+
+</script>
+{% endblock %}

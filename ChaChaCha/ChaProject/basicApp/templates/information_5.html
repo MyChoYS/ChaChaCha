@@ -1,0 +1,436 @@
+{% extends 'base.html' %}
+
+{% block headcontent %}
+<title>운전면허</title>
+{% endblock %}
+{% block content %}
+{% load static %}
+<br>
+<br>
+<br>
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Nanum+Brush+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR:200,300,400,500,600,700,900&display=swap');
+
+    main > h2 :hover {
+       background-color : #ffffb3;  ;
+    }
+    main > h2{
+       font-weight : normal;
+    }
+      h1{
+       font-weight : normal;
+    }
+</style>
+ <main class="" id="main-collapse">
+
+     <h2><a style="color:black" href= "{% url 'information_0' %}">면허시험 준비물 가이드</a></h2>
+<hr>
+
+    <h2><a style="color:black" href= "{% url 'information_1' %}">면허시험 순서</a></h2>
+<hr>
+
+    <h2><a style="color:black" href= "{% url 'information_2' %}">시험자격/결격/면제</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_3' %}">응시 전 교통안전교육</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_4' %}">학과/기능/도로주행</a></h2>
+<hr>
+
+     <h1><a style="color:black" href= "{% url 'information' %}">시험장별 응시가능 시험</a></h1>
+	 <br>
+
+<div class="contents">
+
+			<h4 style="color:orange" class="tit_type1">시험장별 응시가능 시험</h4>
+			<p class="fc_org"></p>
+			<table border="1pt" style="text-align : center" class="data_tbl mgt10 ">
+					<caption>시험장별 응시가능 시험에 관한 내용 입니다</caption>
+					<colgroup>
+						<col style="width:10%">
+						<col style="width:*">
+						<col style="width:10%">
+						<col style="width:10%">
+						<col style="width:10%">
+						<col style="width:10%">
+						<col style="width:10%">
+						<col style="width:10%">
+						<col style="width:10%">
+						<col style="width:10%">
+					</colgroup>
+					<thead>
+						<tr style="width:1100px">
+							<th scope="col" rowspan="2" style="width:110px">번호</th>
+							<th scope="col" rowspan="2" style="width:110px">시험장</th>
+							<th scope="col" colspan="8" >가능한 시험 종류</th>
+						</tr>
+						<tr style="width:1100px">
+							<th scope="col" style="width:110px">제1-2종 보통</th>
+							<th scope="col" style="width:110px">제1종대형</th>
+							<th scope="col" style="width:110px">제1종<br/>대형견인차</th>
+							<th scope="col" style="width:110px">제1종<br/>구난차</th>
+							<th scope="col" style="width:110px">제1종<br/>소형견인차</th>
+							<th scope="col" style="width:110px">제2종소형</th>
+							<th scope="col" style="width:110px">제2종<br/>원동기</th>
+							<th scope="col" style="width:110px">제2종<br/>다륜 원동기</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td><a href="http://dl.koroad.or.kr/PAGE_license/gangnamLic/view.jsp?code=102006"><span class="fc_blue_text underLine">강남</span></a></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td><a href="http://dl.koroad.or.kr/PAGE_license/dobongLic/view.jsp?code=102506"><span class="fc_blue_text underLine">도봉</span></a></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td><a href="http://dl.koroad.or.kr/PAGE_license/gangseoLic/view.jsp?code=102206"><span class="fc_blue_text underLine">강서</span></a></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkX">X</span></td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td><a href="http://dl.koroad.or.kr/PAGE_license/seobuLic/view.jsp?code=103006"><span class="fc_blue_text underLine">서부</span></a></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkX">X</span></td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td><a href="http://dl.koroad.or.kr/PAGE_license/busannambuLic/view.jsp?code=102806"><span class="fc_blue_text underLine">부산남부</span></a></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td><a href="http://dl.koroad.or.kr/PAGE_license/busanbukbuLic/view.jsp?code=102906"><span class="fc_blue_text underLine">부산북부</span></a></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkX">X</span></td>
+
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td><a href="http://dl.koroad.or.kr/PAGE_license/daeguLic/view.jsp?code=102306"><span class="fc_blue_text underLine">대구</span></a></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkX">X</span></td>
+						</tr>
+						<tr>
+							<td>8</td>
+							<td><a href="http://dl.koroad.or.kr/PAGE_license/incheonLic/view.jsp?code=103706"><span class="fc_blue_text underLine">인천</span></a></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkX">X</span></td>
+						</tr>
+						<tr>
+							<td>9</td>
+							<td><a href="http://dl.koroad.or.kr/PAGE_license/yonginLic/view.jsp?code=103306"><span class="fc_blue_text underLine">용인</span></a></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkX">X</span></td>
+						</tr>
+						<tr>
+							<td>10</td>
+							<td><a href="http://dl.koroad.or.kr/PAGE_license/ansanLic/view.jsp?code=103106"><span class="fc_blue_text underLine">안산</span></a></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+						</tr>
+						<tr>
+							<td>11</td>
+							<td><a href="http://dl.koroad.or.kr/PAGE_license/uijeongbuLic/view.jsp?code=103606"><span class="fc_blue_text underLine">의정부</span></a></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkX">X</span></td>
+
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkX">X</span></td>
+						</tr>
+						<tr>
+							<td>12</td>
+							<td><a href="http://dl.koroad.or.kr/PAGE_license/chuncheonLic/view.jsp?code=104206"><span class="fc_blue_text underLine">춘천</span></a></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+						</tr>
+						<tr>
+							<td>13</td>
+							<td><a href="http://dl.koroad.or.kr/PAGE_license/gangneungLic/view.jsp?code=102106"><span class="fc_blue_text underLine">강릉</span></a></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkX">X</span></td>
+						</tr>
+						<tr>
+							<td>14</td>
+							<td><a href="http://dl.koroad.or.kr/PAGE_license/wonjuLic/view.jsp?code=103506"><span class="fc_blue_text underLine">원주</span></a></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+						</tr>
+						<tr>
+							<td>15</td>
+							<td><a href="http://dl.koroad.or.kr/PAGE_license/taebaekLic/view.jsp?code=104406"><span class="fc_blue_text underLine">태백</span></a></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+						</tr>
+						<tr>
+							<td>16</td>
+							<td><a href="http://dl.koroad.or.kr/PAGE_license/cheongjuLic/view.jsp?code=104106"><span class="fc_blue_text underLine">청주</span></a></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+						</tr>
+						<tr>
+							<td>17</td>
+							<td><a href="http://dl.koroad.or.kr/PAGE_license/chungjuLic/view.jsp?code=104306"><span class="fc_blue_text underLine">충주</span></a></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+						</tr>
+						<tr>
+							<td>18</td>
+							<td><a href="http://dl.koroad.or.kr/PAGE_license/daejeonLic/view.jsp?code=102406"><span class="fc_blue_text underLine">대전</span></a></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkX">X</span></td>
+						</tr>
+						<tr>
+							<td>19</td>
+							<td><a href="http://dl.koroad.or.kr/PAGE_license/yesanLic/view.jsp?code=103206"><span class="fc_blue_text underLine">예산</span></a></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+						</tr>
+						<tr>
+							<td>20</td>
+							<td><a href="http://dl.koroad.or.kr/PAGE_license/jeonbukLic/view.jsp?code=103906"><span class="fc_blue_text underLine">전북</span></a></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+
+						</tr>
+						<tr>
+							<td>21</td>
+							<td><a href="http://dl.koroad.or.kr/PAGE_license/jeonnamLic/view.jsp?code=103806"><span class="fc_blue_text underLine">전남</span></a></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+						</tr>
+						<tr>
+							<td>22</td>
+							<td><a href="http://dl.koroad.or.kr/PAGE_license/gwangyangLic/view.jsp?code=210888"><span class="fc_blue_text underLine">광양</span></a></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+						</tr>
+						<tr>
+							<td>23</td>
+							<td><a href="http://dl.koroad.or.kr/PAGE_license/mungyeongLic/view.jsp?code=102706"><span class="fc_blue_text underLine">문경</span></a></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+						</tr>
+						<tr>
+							<td>24</td>
+							<td><a href="http://dl.koroad.or.kr/PAGE_license/pohangLic/view.jsp?code=104506"><span class="fc_blue_text underLine">포항</span></a></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkX">X</span></td>
+						</tr>
+						<tr>
+							<td>25</td>
+							<td><a href="http://dl.koroad.or.kr/PAGE_license/masanLic/view.jsp?code=102606"><span class="fc_blue_text underLine">마산</span></a></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkX">X</span></td>
+						</tr>
+						<tr>
+							<td>26</td>
+							<td><a href="http://dl.koroad.or.kr/PAGE_license/ulsanLic/view.jsp?code=103406"><span class="fc_blue_text underLine">울산</span></a></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkX">X</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkX">X</span></td>
+						</tr>
+						<tr>
+							<td>27</td>
+							<td><a href="http://dl.koroad.or.kr/PAGE_license/jejuLic/view.jsp?code=104006"><span class="fc_blue_text underLine">제주</span></a></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+							<td><span class="checkO">O</span></td>
+						</tr>
+					</tbody>
+				</table>
+
+		</div><!-- //contents -->
+	</div><!-- //dBody -->
+     <hr>
+     <h2><a style="color:black" href= "{% url 'information_6' %}">운전면허의 종류</a></h2>
+<hr>
+ </main>
+{% endblock %}

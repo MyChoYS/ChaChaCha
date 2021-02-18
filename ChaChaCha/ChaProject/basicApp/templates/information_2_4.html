@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block headcontent %}
+<title>운전면허</title>
+{% endblock %}
+{% block content %}
+{% load static %}
+<br>
+<br>
+<br>
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Nanum+Brush+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR:200,300,400,500,600,700,900&display=swap');
+
+    main > h2 :hover {
+       background-color : #ffffb3;  ;
+    }
+    main > h2{
+       font-weight : normal;
+    }
+      h1{
+       font-weight : normal;
+    }
+</style>
+ <main class="" id="main-collapse">
+
+    <h2><a style="color:black" href= "{% url 'information_0' %}">면허시험 준비물 가이드</a></h2>
+<hr>
+    <h2><a style="color:black" href= "{% url 'information_1' %}">면허시험 순서</a></h2>
+<hr>
+<div class="contents m01_DB001">
+			<div class="tit_g">
+				<h1><a style="color : black" href="{% url 'information' %}">시험자격/결격/면제</a></h1>
+			</div>
+			<ul class="tabs_ui col4">
+				<li class="current"><a href="{% url 'information_2_1' %}">시험 면제</a></li>
+				<li><a href="{% url 'information_2_2' %}">운전면허 결격사유</a></li>
+				<li><a href="{% url 'information_2_3' %}">응시 제한</a></li>
+				<li><a href="{% url 'information_2' %}">시험자격</a></li>
+			</ul>
+<hr>
+			<div class="conTab_ui drivExam01">
+				<h4 style="color:orange">시험자격</h4>
+				<ul class="ul_list2 type">
+					<li><span>면허종류</span>
+						<div>
+							<ul class="type">
+								<li>- 제1종 대형·특수면허 : 만19세 이상으로 1,2종 보통면허 취득 후 1년 이상인 자</li>
+								<li>- 제1종 보통·2종 보통·2종 소형면허 : 만18세 이상인 자</li>
+								<li>- 제2종 원동기장치 자전거 면허 : 만16세 이상인 자</li>
+								<li>- 제1종·2종 장애인 면허 : 장애인 운동능력측정시험 합격자, 1종을 취득하기 위해서는 1종에 부합되는 합격자</li>
+							</ul>
+						</div>
+					</li>
+					<li><span>신체검사기준</span>
+						<div>
+							<ul class="type">
+								<li><strong>- 시력 (교정시력 포함)</strong>
+									<span> 제1종 면허 : 두 눈을 동시에 뜨고 잰 시력 0.8 이상, 두 눈의 시력이 각각 0.5 이상<br/>
+									※ 단, 한쪽 눈을 보지 못하는 사람은 제1종 대형·특수 운전면허에 응시할 수 없으며, 제1종 보통 운전면허를 취득하고자 하는 경우 다른 쪽 눈의 시력 0.8 이상, 수직 시야 20˚, 수평 시야 120˚이상, 중심 시야 20˚내 암점 또는 반맹이 없어야 함</span>
+									<span> 제 2종 면허 : 두 눈을 동시에 뜨고 잰 시력이 0.5 이상. 다만, 한쪽 눈을 보지 못하는 사람은 다른 쪽 눈의 시력이 0.6 이상이어야 함</span>
+								</li>
+								<li><strong>- 색채식별</strong><span>적, 녹, 황색의 색채식별가능</span></li>
+								<li><strong>- 청력</strong>
+									<span>제1종 대형·특수에 한하여 청력 55 데시벨의 소리를 들을 수 있을 것</span>
+									<span>보청기 사용 시 40 데시벨의 소리를 들을 수 있을 것</span>
+								</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+
+			</div>
+
+		</div><!-- //contents -->
+		</div><!-- //dBody -->
+<hr>
+
+	      <h2><a style="color:black" href= "{% url 'information_3' %}">응시 전 교통안전교육</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_4' %}">학과/기능/도로주행</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_5' %}">시험장별 응시가능 시험</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_6' %}">운전면허의 종류</a></h2>
+<hr>
+
+</main>
+{% endblock %}

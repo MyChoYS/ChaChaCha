@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block headcontent %}
+<title>운전면허</title>
+{% endblock %}
+{% block content %}
+{% load static %}
+<br>
+<br>
+<br>
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Nanum+Brush+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR:200,300,400,500,600,700,900&display=swap');
+
+    main > h2 :hover {
+       background-color : #ffffb3;  ;
+    }
+     h2{
+       font-weight : normal;
+    }
+      h1{
+       font-weight : normal;
+    }
+</style>
+ <main class="" id="main-collapse">
+
+<div class="contents m01_DB001">
+		 <h2><a style="color:black" href= "{% url 'information_0' %}">면허시험 준비물 가이드</a></h2>
+<hr>
+
+    <h2><a style="color:black" href= "{% url 'information_1' %}">면허시험 순서</a></h2>
+<hr>
+
+    <h2><a style="color:black" href= "{% url 'information_2' %}">시험자격/결격/면제</a></h2>
+<hr>
+
+     <h1><a style="color:black" href= "{% url 'information' %}">응시 전 교통안전교육</a></h1>
+
+
+<ul class="tabs_ui col4">
+				<li class="current"><a href="{% url 'information_3' %}">응시 전 교통안전교육</a></li>
+				<li><a href="{% url 'information_3_2' %}">신체검사</a></li>
+			</ul>
+<hr>
+<h5 style="color:orange" class="tit_type1">응시 전 교통안전교육</h5>
+				<ul class="ul_list2 type">
+					<li><span>교육대상</span>
+						<div>
+							<ul class="type">
+								<li>- 처음으로 운전면허를 취득하는 자(원동기장치 자전거 응시자 포함) </li>
+								<li>- 군 운전면허소지자 중 일반 면허로 갱신하는 자</li>
+								<li>※ 교육대상자 제외
+									<ul class="ul_list mgt10">
+										<li>운전면허가 있는 사람이 다른 종류의 운전면허를 취득하고자 하는 자   (원동기장치자전거 면허 소지자 포함)</li>
+										<li>외국면허 소지자로서 일반 면허로 갱신하고자 하는 자</li>
+										<li>국제운전면허증을 받고자 하는 자</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li><span>교육 시기</span>- 학과시험 응시 전까지 언제나 가능</li>
+					<li><span>교육시간</span>- 시청각 1시간</li>
+					<li><span>수강신청 절차 </span>- 교육 수강 신청 및 접수 > 지문 등록 > 수강카드발급 > 강의실 입실 > 교육 수강</li>
+					<li><span>준비물</span>- 주민등록증 또는 본인을 확인할 수 있는 신분증, 교육 수강료 무료 </li>
+					<li><span>주의사항 </span>- 신규면허 발급 전까지 유효기간 이내에는 수회에 걸쳐 면허시험에 응시하더라도 추가 교육 수강 의무 면제</li>
+				</ul>
+			</div>
+		</div><!-- //contents -->
+	</div><!-- //dBody -->
+
+
+<hr>
+
+
+
+     <h2><a style="color:black" href= "{% url 'information_4' %}">학과/기능/도로주행</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_5' %}">시험장별 응시가능 시험</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_6' %}">운전면허의 종류</a></h2>
+<hr>
+</div>
+</main>
+{% endblock %}

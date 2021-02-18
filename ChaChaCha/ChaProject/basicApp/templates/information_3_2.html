@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block headcontent %}
+<title>운전면허</title>
+{% endblock %}
+{% block content %}
+{% load static %}
+<br>
+<br>
+<br>
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Nanum+Brush+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR:200,300,400,500,600,700,900&display=swap');
+
+    main > h2 :hover {
+       background-color : #ffffb3;  ;
+    }
+     h2{
+       font-weight : normal;
+    }
+      h1{
+       font-weight : normal;
+    }
+</style>
+ <main class="" id="main-collapse">
+
+<div class="contents m01_DB001">
+		 <h2><a style="color:black" href= "{% url 'information_0' %}">면허시험 준비물 가이드</a></h2>
+<hr>
+
+    <h2><a style="color:black" href= "{% url 'information_1' %}">면허시험 순서</a></h2>
+<hr>
+
+    <h2><a style="color:black" href= "{% url 'information_2' %}">시험자격/결격/면제</a></h2>
+<hr>
+
+     <h1><a style="color:black" href= "{% url 'information' %}">응시 전 교통안전교육</a></h1>
+
+
+<ul class="tabs_ui col4">
+				<li class="current"><a href="{% url 'information_3_1' %}">응시 전 교통안전교육</a></li>
+				<li><a href="{% url 'information_3' %}">신체검사</a></li>
+			</ul>
+    <hr>
+<div class="conTab_ui befoEdu02">
+				<h5 style="color:orange" class="tit_type1">신체검사</h5>
+				<ul class="ul_list2 type">
+					<li><span>장소 </span>- 운전면허시험장 내 신체검사실 또는 병원(문경, 강릉, 태백시험장은 신체검사실이 없으므로 병원에서 받아와야 함)</li>
+					<li><span>준비물 및 주의사항 </span>- 신분증, 6개월 이내 촬영한 컬러 사진 (규격 3.5cm*4.5cm) 2매 </li>
+					<li><span>수수료</span>
+						<div>
+							<ul>
+								<li>- 시험장 내 신체검사실: 1종 대형/특수면허 7,000원, 기타 면허 6,000원 </li>
+								<li>- 건강검진결과내역서 등 제출 시 신체검사비 무료(1종보통, 7년 무사고만 해당)</li>
+								<li>- 시험장 내 신체검사장 외의 병원인 경우 신체검사비는 일반의료수가에 따름</li>
+								<li>- 국민건강보험공단의 건강검진 및 징병신체검사(신청일로부터 2년 이내)를 받으신 경우는 운전면허시험장 또는 경찰서에서 본인이 정보이용동의서 작성 시 별도의 건강검진결과내역서 제출 및 신체검사를 받지 않아도 됨 (단, 신청일로부터 2년 이내여야 하며, 시력기준을 충족해야 함)</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+
+			</div>
+
+		</div><!-- //contents -->
+	</div><!-- //dBody -->
+
+
+<hr>
+     <h2><a style="color:black" href= "{% url 'information_4' %}">학과/기능/도로주행</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_5' %}">시험장별 응시가능 시험</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_6' %}">운전면허의 종류</a></h2>
+<hr>
+</div>
+</main>
+{% endblock %}

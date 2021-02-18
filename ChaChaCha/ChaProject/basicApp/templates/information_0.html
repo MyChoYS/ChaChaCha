@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+
+{% block headcontent %}
+<title>운전면허</title>
+{% endblock %}
+{% block content %}
+{% load static %}
+<br>
+<br>
+<br>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Nanum+Brush+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR:200,300,400,500,600,700,900&display=swap');
+
+    main > h2 :hover {
+       background-color : #ffffb3;  ;
+    }
+ main > h2{
+       font-weight : normal;
+    }
+     main > h1{
+       font-weight : normal;
+    }
+
+
+</style>
+ <main class="" id="main-collapse">
+
+    <h1><a style="color:black" href= "{% url 'information' %}">면허시험 준비물 가이드</a></h1>
+
+<ul class="ul_list2 type mgt50">
+				<li id="go1"><span>신규 응시 신체검사</span>
+					<div>
+						<ul class="type">
+							<li>- <strong>수수료</strong><br/>
+								  신체검사료 (시험장 내 신체검사장 기준)1종 대형/특수면허: 7,000원<br/>
+								  기타 면허 6,000원<br/>
+							<li>- <strong>준비물 및 주의사항</strong> : 신분증 6개월 이내 촬영한 컬러 사진 (규격 3.5cm*4.5cm) 3매
+								<p>※ 병원 신체검사 외 건강검진결과 및 징병신체검사서 확인(시험장 및 경찰서 방문 시 행정정보 공동이용 동의 시 활용 가능), 진단서로 신체 검사 후<br/>
+								대리접수 가능(제1종 보통, 제2종 운전면허에 한함)</p>
+								<p>※ 병원 신체검사 수수료는 병원마다 상이함</p>
+								<p>※ 강릉, 태백, 문경면허시험장 내에는 신체검사장이 없으므로 가까운 병원에서 신체검사를 받으시기 바랍니다.</p>
+								<p>※ 한쪽 눈이 보이지 않는 분이 1종 보통면허 시험에 응시할 경우, 안과의사의 진단서 필요 (세부기준 고객지원센터 1577-1120문의)</p>
+							</li>
+							<li>- <strong>인터넷접수 및 대리접수 가능여부</strong> <br/>
+								  인터넷 : 불가<br/>
+								  대리 : 불가, 본인신체검사</li>
+						</ul>
+					</div>
+				</li>
+				<li id="go2"><span>학과 시험<br/>(재 응시 포함)</span>
+					<div>
+						<ul class="type">
+							<li>- <strong>수수료</strong> : 10,000원, 원동기 8,000원</li>
+							<li>- <strong>준비물 및 주의사항</strong> : 신분증, 응시원서</li>
+							<li>- <strong>인터넷접수 및 대리접수 가능여부</strong><br/>
+							  인터넷 : 불가<br/>
+							  대리 : 불가</li>
+						</ul>
+					</div>
+				</li>
+				<li id="go3"><span>기능 시험<br/>(재 응시 포함)</span>
+					<div>
+						<ul class="type">
+							<li>- <strong>수수료</strong><br/>
+								대형/특수 20,000 원<br/>
+							  1·2종 보통 22,000원<br/>
+							  2종 소형 10,000원, 원동기 8,000원</li>
+							<li>- <strong>준비물 및 주의사항</strong> : 신분증, 응시원서</li>
+							<li>- <strong>인터넷접수 및 대리접수 가능여부</strong><br/>
+							  인터넷 : 가능<br/>
+							  대리 : 가능 (대리 : 위임장, 대리인·위임자 신분증, 응시원서)</li>
+						</ul>
+					</div>
+				</li>
+				<li id="go4"><span>도로주행 시험<br/>(재 응시 포함)</span>
+					<div>
+						<ul class="type">
+							<li>- <strong>수수료</strong> : 25,000원 </li>
+							<li>- <strong>준비물 및 주의사항</strong> : 신분증, 응시원서</li>
+							<li>-<strong> 인터넷접수 및 대리접수 가능여부</strong><br/>
+							   인터넷 : 가능<br/>
+							  대리 : 가능 (대리 : 위임장, 대리인·위임자 신분증, 응시원서)</li>
+						</ul>
+					</div>
+				</li>
+				<li id="go5"><span>합격자 면허증 교부</span>
+					<div>
+						<ul class="type">
+							<li>- <strong>수수료</strong> : 8,000원</li>
+							<li>- <strong>준비물 및 주의사항</strong> : 신분증, 응시원서, 6개월 이내 촬영한 컬러 사진 (규격 3.5cm*4.5cm) 1매 <br/>
+							   ※ 기존 면허증 소지자는 구 면허증 반납</li>
+							<li>- <strong>인터넷접수 및 대리접수 가능여부</strong><br/>
+							   인터넷 : 불가<br/>
+							   대리 : 가능 (대리 : 위임장, 대리인·위임자 신분증, 응시원서)</li>
+						</ul>
+					</div>
+				</li>
+				<li id="go6"><span>연습면허/연습면허<br/>재교부</span>
+					<div>
+						<ul class="type">
+							<li>- <strong>수수료</strong> : 4,000원</li>
+							<li>- <strong>준비물 및 주의사항</strong> : 신분증, 응시원서</li>
+							<li>- <strong>인터넷접수 및 대리접수 가능여부</strong><br/>
+							   인터넷 : 가능 (연습면허증 재교부는 인터넷 불가)<br/>
+							   대리 : 가능 (대리 : 위임장, 대리인·위임자 신분증, 응시원서)</li>
+						</ul>
+					</div>
+				</li>
+				<li id="go7"><span>응시원서 분실</span>
+					<div>
+						<ul class="type">
+							<li>- <strong>수수료</strong> : 수수료 없음, 연습면허 재발급 시 4,000원</li>
+							<li>- <strong>준비물 및 주의사항</strong> : 신분증, 6개월 이내 촬영한 컬러 사진 (규격 3.5cm*4.5cm) 1매</li>
+							<li>-<strong> 인터넷접수 및 대리접수 가능여부</strong><br/>
+							   인터넷 : 불가<br/>
+							   대리 : 가능 (대리 : 위임장, 대리인·위임자 신분증)</li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div><!-- //contents -->
+	</div><!-- //dBody -->
+
+<br>
+
+    <h2><a style="color:black" href= "{% url 'information_1' %}">면허시험 순서</a></h2>
+<hr>
+<h2><a style="color:black" href= "{% url 'information_2' %}">시험자격/결격/면제</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_3' %}">응시 전 교통안전교육</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_4' %}">학과/기능/도로주행</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_5' %}">시험장별 응시가능 시험</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_6' %}">운전면허의 종류</a></h2>
+<hr>
+
+</main>
+{% endblock %}

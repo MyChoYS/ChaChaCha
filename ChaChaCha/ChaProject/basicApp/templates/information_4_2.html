@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block headcontent %}
+<title>운전면허</title>
+{% endblock %}
+{% block content %}
+{% load static %}
+<br>
+<br>
+<br>
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Nanum+Brush+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR:200,300,400,500,600,700,900&display=swap');
+
+    main > h2 :hover {
+       background-color : #ffffb3;  ;
+    }
+    main > h2{
+       font-weight : normal;
+    }
+      h1{
+       font-weight : normal;
+    }
+</style>
+ <main class="" id="main-collapse">
+
+    <h2><a style="color:black" href= "{% url 'information_0' %}">면허시험 준비물 가이드</a></h2>
+<hr>
+
+    <h2><a style="color:black" href= "{% url 'information_1' %}">면허시험 순서</a></h2>
+<hr>
+
+    <h2><a style="color:black" href= "{% url 'information_2' %}">시험자격/결격/면제</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_3' %}">응시 전 교통안전교육</a></h2>
+<hr>
+
+     <h1><a style="color:black" href= "{% url 'information' %}">학과/기능/도로주행</a></h1>
+
+     <ul class="tabs_ui col4">
+				<li class="current"><a href="{% url 'information_4_1' %}">학과시험</a></li>
+				<li><a href="{% url 'information_4' %}">기능시험</a></li>
+				<li><a href="{% url 'information_4_3' %}">도로주행</a></li>
+			</ul>
+     <hr>
+   		<h4 style="color:orange" class="tit_type1">제1∙2종 보통</h4>
+					<ul class="ul_list2">
+						<li><span>준비물</span>- 온라인 접수 또는 현장 예약 접수 후 시험 당일 응시원서, 신분증 지참</li>
+						<li><span>합격기준</span>- 80점 이상</li>
+						<li><span>수수료</span>- 22,000원</li>
+						<li><span>시험 코스</span>
+							<div>
+								<ul>
+									<li>- 주행거리 300m 이상, 운전장치 조작, 차로 준수·급정지, 경사로</li>
+									<li>- 좌·우회전, 직각 주차, 신호교차로, 전진(가속구간)</li>
+								</ul>
+							</div>
+						</li>
+						<li><span>실격기준</span>
+							<div>
+								<ul>
+									<li>- 점검이 시작될 때부터 종료될 때까지 좌석 안전띠를 착용하지 아니한 때</li>
+									<li>- 시험 중 안전사고를 일으키거나 차의 바퀴 어느 하나라도 연석을 접촉한 때</li>
+									<li>- 시험관의 지시나 통제를 따르지 않거나 음주, 과로, 마약·대마 등 약물 등의 영향으로 정상적인 시험 진행이 어려운 때</li>
+									<li>- 특별한 사유 없이 출발 지시 후 출발선에서 30초 이내 출발하지 못한 때</li>
+									<li>- 각 시험 코스를 어느 하나라도 시도하지 않거나 제대로 이행하지 않을 때(예: 경사로에서 정지하지 않고 통과, 직각 주차에서 차고에 진입해서 확인선을 접촉하지 않음, 가속코스에서 기어변속을 하지 않음)</li>
+									<li>- 경사로 정지 구간 이행 후 30초를 초과하여 통과하지 못한 때 또는 경사로 정지 구간에서 후방으로 1미터 이상 밀린 때</li>
+									<li>- 신호 교차로에서 신호위반을 하거나 또는 앞 범퍼가 정지선을 넘어간 때</li>
+								</ul>
+							</div>
+						</li>
+						<li><span>주의사항</span>
+							<div>
+								<ul>
+									<li>- 학과시험 합격일로부터 <strong>1년 이내 기능 시험에 합격</strong>하여야 함.</li>
+									<li>- 1년경과 시 기존 원서 폐기 후 학과시험부터 신규 접수하여야 하며 이때 응시 전 교통안전교육 재수강은 <strong>불필요</strong></li>
+								</ul>
+							</div>
+						</li>
+						<li><span>불합격 후 재 응시</span>
+							<div>
+								<ul>
+									<li>- 기능시험 불합격자는(운전전문학원 불합격 포함) 불합격 일로부터 3일 경과 후에 재 응시 가능</li>
+									<li> 예) 1일(월요일)에 불합격하였을 경우, 4일(목요일)부터 재 응시 가능</li>
+								</ul>
+							</div>
+						</li>
+						<li><span>외국어 음성, 화면 <br>지원 서비스 제공</span>
+							<div>
+								<ul>
+									<li>- 영어, 중국어</li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+
+
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_5' %}">시험장별 응시가능 시험</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_6' %}">운전면허의 종류</a></h2>
+<hr>
+
+</main>
+{% endblock %}

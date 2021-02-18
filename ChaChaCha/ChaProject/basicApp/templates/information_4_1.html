@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+
+{% block headcontent %}
+<title>운전면허</title>
+{% endblock %}
+{% block content %}
+{% load static %}
+<br>
+<br>
+<br>
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Nanum+Brush+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR:200,300,400,500,600,700,900&display=swap');
+
+    main > h2 :hover {
+       background-color : #ffffb3;  ;
+    }
+    main > h2{
+       font-weight : normal;
+    }
+      h1{
+       font-weight : normal;
+    }
+</style>
+ <main class="" id="main-collapse">
+
+    <h2><a style="color:black" href= "{% url 'information_0' %}">면허시험 준비물 가이드</a></h2>
+<hr>
+
+    <h2><a style="color:black" href= "{% url 'information_1' %}">면허시험 순서</a></h2>
+<hr>
+
+    <h2><a style="color:black" href= "{% url 'information_2' %}">시험자격/결격/면제</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_3' %}">응시 전 교통안전교육</a></h2>
+<hr>
+
+     <h1><a style="color:black" href= "{% url 'information' %}">학과/기능/도로주행</a></h1>
+
+     <ul class="tabs_ui col4">
+				<li class="current"><a href="{% url 'information_4' %}">학과시험</a></li>
+				<li><a href="{% url 'information_4_2' %}">기능시험</a></li>
+				<li><a href="{% url 'information_4_3' %}">도로주행</a></li>
+			</ul>
+     <hr>
+
+     <h4 style="color:orange" class="tit_type1">학과시험</h4>
+				<p class="mgt30">※ 전국 운전면허시험장에서 평일 09:00~17:00 응시접수 가능합니다. <span>(비문해자, 청각장애인 학과시험은 16:30까지 접수)</span></p>
+				<p class="mgt10">※ PC학과시험은 당일 접수하여 당일 응시하므로 <strong>별도로 예약하실 필요가 없습니다.</strong></p>
+				<table class="form_tbl mgt10 ">
+					<caption>학과시험 안내에 관한 내용 입니다</caption>
+					<colgroup>
+						<col style="width:16.666%">
+						<col style="width:16.666%">
+						<col style="width:16.666%">
+						<col style="width:16.666%">
+						<col style="width:16.666%">
+						<col style="width:16.666%">
+					</colgroup>
+					<thead>
+						<tr>
+							<th scope="col">면허 종별</th>
+							<th scope="col">1종 대형, 특수<br>(대형견인, 소형견인, 구난차)</th>
+							<th scope="col">1종 보통</th>
+							<th scope="col">2종 보통</th>
+							<th scope="col">2종 소형 (125cc 초과 이륜자동차)</th>
+							<th scope="col">2종 원동기 장치자전거 (125cc 이하)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">합격기준</th>
+							<td colspan="2">70점 이상 시 합격</td>
+							<td colspan="3">60점 이상 시 합격</td>
+						</tr>
+						<tr>
+							<th scope="row">시험자격</th>
+							<td>19세 이상 1·2종 보통 면허 취득 후 1년 경과한 자</td>
+							<td colspan="3">18세 이상</td>
+							<td>16세 이상</td>
+						</tr>
+						<tr>
+							<th scope="row">시험시간</th>
+							<td colspan="5">40분</td>
+						</tr>
+						<tr>
+							<th scope="row">수수료</th>
+							<td colspan="4">10,000원</td>
+							<td>8,000원</td>
+						</tr>
+						<tr>
+
+							<th scope="row" >시험유형</th>
+                          	<td colspan="5" >객관식(선다형)</td>
+
+						</tr>
+
+                      	<tr>
+							<th scope="row">준비물</th>
+							 <td colspan="5" class="tal">- 응시원서(신체검사 완료 또는 건강검진결과서 조회·제출),<br /> - 신청일로부터 6개월 내에 모자를 벗은 상태에서 배경 없이 촬영된 3.5X4.5cm 규격의 상반신 컬러사진
+							 <a href="https://www.safedriving.or.kr/guide/rerGuide04View.do?menuCode=MN-PO-1114" target="_blank" title="새창으로 열림" onclick="openWindow(this.href, 'exam15','600','550',''); return false;" class="link"><span class="red">(허용되는 사진규격)</span></a> 3매,<br /> - 신분증 <a href="https://www.safedriving.or.kr/guide/rerGuide04View.do?menuCode=MN-PO-1114" target="_blank"  title="사진등록 새창열기" onclick="openWindow(this.href, 'exam14','600','600',''); return false;">(<span class="red">신분증 인정 범위</span>)</a>
+							  </td>
+							</tr>
+
+							<tr>
+								<th scope="row">시험내용</th>
+								<td colspan="5" class="tal">안전운전에 필요한 교통법규 등 공개된 학과시험
+								  문제은행 중 40문제 출제<br /><a href="https://www.safedriving.or.kr/notice/rerBankList.do?menuCode=MN-PO-1151">(<font color="red">문제은행 다운로드</font>)</a></td>
+							</tr>
+
+							 <tr>
+								<th scope="row">결과발표</th>
+							   <td colspan="5" class="tal">- 시험 종료 즉시 컴퓨터 모니터에 획득 점수 및 합격 여부 표시<br />
+								 - 합격 또는 불합격도장이 찍힌 응시원서를 돌려받아 본인이 보관</td>
+							</tr>
+
+							<tr>
+								<th scope="row">주의사항</th>
+							  <td colspan="5" class="tal">- 학과시험 최초응시 일로부터 <b>1년 이내 학과시험에 합격</b>하여야 함.<br />
+								- 학과시험 합격일로부터 <b>1년 이내 기능시험에 합격</b>하여야 함.<br />
+								- 1년경과 시 기존 원서 폐기 후 학과시험부터 신규 접수하여야 하며  이때 교통안전교육 재수강은 <b>불필요</b>
+							  </td>
+						  </tr>
+
+						 <tr>
+						   <th scope="row">응시가능 <br />언어</th>
+						   <td colspan="5" class="tal">한국어, 영어, 중국어, 베트남어</td>
+						 </tr>
+
+						 <tr>
+							<th scope="row">비문해자를 위한 PC학과시험</th>
+							<td colspan="5" class="tal">시험문제와 보기를 음성으로 들을 수 있는 PC학과시험 시험시간 총 80분,<br /> 민원실에서 접수 시 신청 가능</td>
+						 </tr>
+						 <tr>
+							<th scope="row">청각장애인을 위한 수화 PC학과시험</th>
+							<td colspan="5" class="tal">청각장애인이면서 비문해자를 위한 수화로 보는 PC학과시험<br />시험시간 총 80분, 민원실에서 접수 시 신청 가능</td>
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
+
+		</div><!-- //contents -->
+	</div><!-- //dBody -->
+
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_5' %}">시험장별 응시가능 시험</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_6' %}">운전면허의 종류</a></h2>
+<hr>
+
+</main>
+{% endblock %}

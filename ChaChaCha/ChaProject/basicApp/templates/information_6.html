@@ -1,0 +1,236 @@
+{% extends 'base.html' %}
+
+{% block headcontent %}
+<title>운전면허</title>
+{% endblock %}
+{% block content %}
+{% load static %}
+<br>
+<br>
+<br>
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Nanum+Brush+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR:200,300,400,500,600,700,900&display=swap');
+
+    main > h2 :hover {
+       background-color : #ffffb3;  ;
+    }
+    main > h2{
+       font-weight : normal;
+    }
+      h1{
+       font-weight : normal;
+    }
+</style>
+ <main class="" id="main-collapse">
+	 
+     <h2><a style="color:black" href= "{% url 'information_0' %}">면허시험 준비물 가이드</a></h2>
+<hr>
+
+    <h2><a style="color:black" href= "{% url 'information_1' %}">면허시험 순서</a></h2>
+<hr>
+
+    <h2><a style="color:black" href= "{% url 'information_2' %}">시험자격/결격/면제</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_3' %}">응시 전 교통안전교육</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_4' %}">학과/기능/도로주행</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_5' %}">시험장별 응시가능 시험</a></h2>
+<hr>
+
+     <h1><a style="color:black" href= "{% url 'information' %}">운전면허의 종류</a></h1>
+     <br>
+
+     <h4 style="color:orange " >운전면허의 종류</h4>
+
+			<p>※ 도로교통법 시행 규칙 제53조 관련</p>
+
+			<table class="table_guide" border="1pt">
+				<caption>운전면허의 종류 안내 표</caption>
+				<colgroup>
+					<col style="width:15%">
+					<col style="width:15%">
+					<col style="width:15%">
+					<col style="width:55%">
+				</colgroup>
+				<thead>
+					<tr>
+						<th scope="col" colspan="3">운전면허</th>
+						<th scope="col" rowspan="2">운전할 수 있는 차량</th>
+					</tr>
+					<tr>
+						<th scope="col">종별</th>
+						<th scope="col" colspan="2">구분</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th rowspan="6" scope="rowgroup">제1종</th>
+						<th colspan="2" scope="row">대형면허</th>
+						<td> ① 승용자동차 <br />
+							  ② 승합자동차<br />
+							  ③ 화물자동차<br />
+							  ④ 삭제 &lt;2018. 4. 25.&gt;<br />
+							  ⑤ 건설기계<br />
+								  - 가. 덤프트럭, 아스팔트살포기, 노상 안정기<br />
+								  - 나. 콘크리트믹서 트럭, 콘크리트펌프, 천공기(트럭 적재식)<br />
+								  - 다. 콘크리트믹서트레일러, 아스팔트콘크리트 재생기<br />
+								  - 라. 도로보수 트럭, 3톤 미만의 지게차<br />
+							  ⑥ 특수자동차[대형견인차, 소형견인차 및 구난차(이하 "구난차등"이라 한다)는 제외한다]<br  />
+							  ⑦ 원동기장치자전거
+						</td>
+					</tr>
+					<tr>
+						<th colspan="2" scope="row">보통면허</th>
+						<td>① 승용자동차 <br/>
+							② 승차정원 15명 이하의 승합자동차 <br/>
+							③ 삭제 &lt;2018. 4. 25.&gt;<br/>
+							④ 적재중량 12톤 미만의 화물자동차 <br/>
+							⑤ 건설기계(도로를 운행하는 3톤 미만의 지게차로 한정한다) <br/>
+							⑥ 총중량 10톤 미만의 특수자동차(구난차등은 제외한다)<br/>
+							⑦ 원동기장치자전거</td>
+					</tr>
+					<tr>
+						<th colspan="2" scope="row">소형면허</th>
+						<td>① 3륜화물자동차 <br/>
+							② 3륜승용자동차 <br/>
+							③ 원동기장치자전거</td>
+					</tr>
+					<tr>
+						<th  rowspan="3">특수면허</th>
+						<th  scope="row">대형<br />견인차</th>
+						<td>① 견인형 특수자동차 <br/>
+							② 제2종 보통면허로 운전할 수 있는 차량
+					   </td>
+					</tr>
+					<tr>
+						<th scope="row">소형<br />견인차</th>
+						<td>① 총중량 3.5톤 이하의 견인형 특수자동차 <br/>
+						② 제2종 보통면허로 운전할 수 있는 차량</td>
+					</tr>
+					<tr>
+						<th scope="row">구난차</th>
+						<td>① 구난형 특수자동차 <br/>
+							② 제2종보통면허로 운전할 수 있는 차량</td>
+					</tr>
+
+					<tr>
+						<th rowspan="3" scope="rowgroup">제2종</th>
+						<th colspan="2" scope="row">보통면허</th>
+						<td >① 승용자동차<br/>
+							② 승차정원 10명 이하의 승합자동차<br/>
+							③ 적재중량 4톤 이하의 화물자동차<br/>
+							④ 총중량 3.5톤 이하의 특수자동차(구난차등은 제외한다)<br/>
+							⑤ 원동기장치자전거</td>
+					</tr>
+					<tr>
+						<th colspan="2" scope="row">소형면허</th>
+						<td >① 이륜자동차(측차부를 포함한다) <br />
+							② 원동기장치자전거</td>
+					</tr>
+					<tr>
+						<th colspan="2" scope="row">원동기장치자전거면허</th>
+						<td >원동기장치자전거</td>
+					</tr>
+					<tr>
+						<th rowspan="2" scope="rowgroup">연습면허</th>
+						<th colspan="2" scope="row">제1종보통</th>
+						<td >① 승용자동차 <br/>
+							② 승차정원 15명 이하의 승합자동차 <br/>
+							③ 적재중량 12톤 미만의 화물자동차</td>
+					</tr>
+					<tr>
+						<th  colspan="2" scope="row">제2종보통</th>
+						<td >① 승용자동차<br/>
+							② 승차정원 10명 이하의 승합자동차<br/>
+							③ 적재중량 4톤 이하의 화물자동차</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h2 class="tit_type1">비고</h2>
+
+			<p class="mgt30">「자동차관리법」 제30조에 따라 자동차의 형식이 변경 승인되거나 같은 법 제34조에 따라 자동차의 구조 또는 장치가 변경 승인된 경우에는 다음의 구분에 따른 기준에 따라 이 표를 적용한다. </p>
+
+			<p class="mgt30">※ 자동차의 형식이 변경된 경우</p>
+
+			<table class="data_tbl mgt10 ">
+				<caption>변경내용,적용 사항 등으로 구분된 자동차의 형식이 변경된 경우 안내</caption>
+				<colgroup>
+					<col style="width:50%">
+					<col style="width:*">
+				</colgroup>
+				<thead>
+					<tr>
+						<th scope="col">변경내용</th>
+						<th scope="col">적용 사항</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="icoNaviRight">
+							<div> 차종 변경 시<br/>
+							승차정원 증가 시<br/>
+							적재 중량 증가 시<br/><br/>
+							차종 변경 없이<br/>
+							승차정원 감소 시<br/>
+							적재 중량 감소 시
+							</div>
+						</td>
+						<td>변경승인 후의 차종<br/>
+						변경승인 후의 승차정원<br/>
+						변경승인 후의 적재 중량<br/><br/>
+						변경승인 전의 승차정원<br/>
+						변경승인 전의 적재 중량</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<ol class="mgt30 txtIndent">
+				<li>※ 자동차의 구조 또는 장치가 변경된 경우 : 변경승인 전의 승차정원 또는 적재 중량</li>
+				<li>※ 위험물 등을 운반하는 적재 중량 3톤 이하 또는 적재용량 3천리터 이하의 화물자동차는 제1종 보통면허가 있어야 운전을 할 수 있고, 적재 중량 3톤 초과 또는 적재용량 3천리터<br/>
+				초과의 화물자동차는 제1종 대형면허가 있어야 운전할 수 있다.</li>
+			</ol>
+
+			<ul class="ul_list2 type mgt30">
+				<li><span>「도로교통법 시행규칙」<br/>
+				  각 목에 따른 위험물 <br/>
+				  운반차량의 기준</span>
+					<div>
+						<ul class="type">
+							<li>-「위험물안전관리법」 제2조제1항 제1호 및 제2호에 따른 지정수량 이상의 위험물</li>
+							<li>-「총포·도검·화약류 등 단속법」 제2조제3항에 따른 화약류</li>
+							<li>-「유해화학물질 관리법」 제2조제3호에 따른 유독물</li>
+							<li>-「폐기물관리법」 제2조제4호에 따른 지정폐기물과 같은 조 제5호에 따른 의료폐기물</li>
+							<li>-「고압가스 안전관리법」 제2조 및 같은 법 시행령 제2조에 따른 고압가스</li>
+							<li>-「액화석유가스의 안전관리 및 사업법」 제2조제1호에 따른 액화석유가스</li>
+							<li>-「원자력안전법」 제2조제5호 및 「방사선안전관리 등의 기술기준에 관한 규칙」 제84조제2호부터 제6호까지의 규정에 따른 방사성물질 </li>
+							<li>-「산업안전보건법」 제37조제1항 및 같은 법 시행령 제29조에 따른 제조 등의 금지 유해물질과 </li>
+							<li>-「산업안전보건법」 제38조제1항 및 같은 법 시행령 제30조에 따른 허가대상 유해물질</li>
+							<li>-「농약관리법」 제2조제3호, 같은 법 시행령 제20조제5항 및 별표 2 제1호에 따른 유독성원제 </li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+
+			<ol class="mgt30 txtIndent">
+				<li>※ 피견인자동차는 제1종 대형면허, 제1종 보통면허 또는 제2종 보통면허를 가지고 있는 사람이 그 면허로 운전할 수 있는 자동차(「자동차관리법」 제3조에 따른 이륜자동차는<br/>
+					제외한다)로 견인할 수 있다. 이 경우, 총중량 750킬로그램을 초과하는 3톤 이하의 피견인자동차를 견인하기 위해서는 견인하는 자동차를 운전할 수 있는 면허와 소형견인차면허<br/>
+					또는 대형견인차면허를 가지고 있어야 하고, 3톤을 초과하는 피견인자동차를 견인하기 위해서는 견인하는 자동차를 운전할 수 있는 면허와 대형견인차면허를 가지고 있어야 한다. </li>
+			</ol>
+
+
+
+		</div><!-- //contents -->
+	</div><!-- //dBody -->
+
+
+
+
+ </main>
+{% endblock %}

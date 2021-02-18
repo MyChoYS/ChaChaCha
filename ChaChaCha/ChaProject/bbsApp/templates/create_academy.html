@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block headcontent %}
+<title>학원 후기 목록</title>
+{% endblock %}
+{% block css %}
+  .b2{
+    border: 0;
+  }
+  .b2:hover{
+    background-color: #ff6360;
+    color : white;
+  }
+{% endblock %}
+{% block content %}
+{% load static %}
+
+{% if flag %}
+
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Nanum+Brush+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR:200,300,400,500,600,700,900&display=swap');
+</style>
+
+<main class="" id="main-collapse">
+  <div class="row">
+    <div class="col-xs-8 section-container-spacer">
+      <h1>학원 후기 쓰기</h1>
+      <p>학원 후기를 남겨 봅시다!</p>
+      <hr>
+    </div>
+  </div>
+
+  <form method="POST" action="{% url 'create_academy' %}">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-lg-2 col-md-3 col-sm-12 p-0">
+        <select id='t_name' class="form-control" onchange="getTown(this.value)" required>
+          <option value="none">=== 시/도 ===</option>
+          <option value="서울">서울</option>
+          <option value="인천">인천</option>
+          <option value="경기">경기</option>
+        </select>
+       </div>
+      <div class="col-lg-2 col-md-3 col-sm-12 p-0">
+        <select id="a_town" class="form-control" name="a_town" onchange="getName(this.value)" required>
+          <option value="none">=== 시/구/군 ===</option>
+        </select>
+      </div>
+      <div class="col-lg-2 col-md-3 col-sm-12 p-0" id="name">
+        <select id="a_name" class="form-control" name="a_name" required>
+          <option value="none">=== 학원명 ===</option>
+        </select>
+      </div>
+
+    </div>
+      <br>
+
+      <label for="InputTitle">제목</label>
+      <input type="text" class="form-control" id="InputTitle" name="title" placeholder="title" required><br>
+      <label for="InputContent">내용</label>
+      <textarea id="InputContent" class="form-control" rows="3" name="content" placeholder="content" required></textarea><br>
+      <label for="InputPassword">비밀번호</label>
+      <input type="password" class="form-control" id="InputPassword" name="password" placeholder="password" required><br>
+      <br>
+      <button class="b2" type="submit" value="Submit">작성완료</button>
+      <button class="b2" type="reset" value="Reset">재작성</button>
+  </form>
+</main>
+{% endif %}
+
+<script>
+  function getTown(city){
+    var target = $('#a_town');
+    if(city=="none"){
+      return;
+    }
+    $.getJSON("{% url 'get_academy_town' %}?value="+city, function(jsonObj){
+      if(jsonObj.length!=0){
+        for(let i in jsonObj.townList)
+          target.append("<option value="+ jsonObj.townList[i] +">"+ jsonObj.townList[i] + "</option>");
+      }
+    });
+  }
+
+  function getName(town){
+    var target = $('#a_name');
+    if(town=="none"){
+      return;
+    }
+    $.getJSON("{% url 'get_academy_name' %}?value="+town, function(jsonObj){
+      if(jsonObj.length!=0){
+        for(let i in jsonObj.nameList)
+          target.append("<option value="+ jsonObj.nameList[i] +">"+ jsonObj.nameList[i] + "</option>");
+      }
+    });
+  }
+</script>
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Nanum+Brush+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR:200,300,400,500,600,700,900&display=swap');
+</style>
+
+</style>
+{% endblock %}

@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block headcontent %}
+<title>운전면허</title>
+{% endblock %}
+{% block content %}
+{% load static %}
+<br>
+<br>
+<br>
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Nanum+Brush+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR:200,300,400,500,600,700,900&display=swap');
+
+    main > h2 :hover {
+       background-color : #ffffb3;  ;
+    }
+    main > h2{
+       font-weight : normal;
+    }
+      h1{
+       font-weight : normal;
+    }
+</style>
+ <main class="" id="main-collapse">
+
+    <h2><a style="color:black" href= "{% url 'information_0' %}">면허시험 준비물 가이드</a></h2>
+<hr>
+
+    <h2><a style="color:black" href= "{% url 'information_1' %}">면허시험 순서</a></h2>
+<hr>
+<div class="contents m01_DB001">
+			<div class="tit_g">
+				<h1><a style="color : black" href="{% url 'information' %}">시험자격/결격/면제</a></h1>
+			</div>
+			<ul class="tabs_ui col4">
+				<li class="current"><a href="{% url 'information_2_1' %}">시험 면제</a></li>
+				<li><a href="{% url 'information_2' %}">운전면허 결격사유</a></li>
+				<li><a href="{% url 'information_2_3' %}">응시 제한</a></li>
+				<li><a href="{% url 'information_2_4' %}">시험자격</a></li>
+			</ul>
+<hr>
+			<div class="conTab_ui drivExam02">
+				<h4 style="color:orange">운전면허 결격사유(도로교통법 제82조, 도로교통법 시행령 제42조)</h4>
+				<p class="mgt30">※  다음에 해당하는 사람은 운전면허를 받을 수 없습니다. </p>
+				<ul class="ul_list2 type mgt30">
+					<li><span>연령·경력</span>
+						<div>
+							<ul class="type">
+								<li>-<strong> 18세 미만인 사람</strong>(원동기장치 자전거의 경우에는 16세 미만)</li>
+								<li>-<strong> 제1종 대형면허 또는 제1종 특수면허</strong>를 받고자 하는 사람이 19세 미만이거나 자동차(이륜자동차와 원동기장치자전거를 제외한다)의 <strong>운전 경험이 1년 미만인 사람</strong></li>
+							</ul>
+						</div>
+					</li>
+					<li><span>정신질환 등</span>
+						<div>
+							<ul class="type">
+								<li>교통상의 위험과 장해를 일으킬 수 있는 정신질환(치매, 조현병, 분열성 정동장애, 양극성 정동장애, 재발성 우울장애 등), <strong>정신발육 지연, 뇌전증, 마약·대마·향정신성의약품 또는 알코올 관련 장애 등</strong>으로 인하여 정상적인 운전을 할 수 없다고 <strong>해당 분야 전문의가 인정하는 사람</strong></li>
+							</ul>
+						</div>
+					</li>
+					<li><span>신체조건</span>
+						<div>
+							<ul class="type">
+								<li>- <strong>듣지 못하는 사람</strong>(제1종 대형·특수 운전면허에 한함)</li>
+								<li>- <strong>앞을 보지 못하는 사람</strong>(한쪽 눈만 보지 못하는 사람의 경우에는 제1종 운전면허 중 대형·특수 운전면허에 한함)</li>
+								<li>- <strong>다리, 머리, 척추, 그 밖의 신체의 장애로 인하여 앉아 있을 수 없는 사람</strong></li>
+								<li>- <strong>양쪽 팔의 팔꿈치 관절 이상을 잃은 사람</strong></li>
+								<li>- <strong>양쪽 팔을 전혀 쓸 수 없는 사람</strong> (다만, 신체장애 정도에 적합하게 제작·승인된 자동차를 사용하여 정상적인 운전을 할 수 있는 경우는 제외)</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+
+			</div>
+
+		</div><!-- //contents -->
+	</div><!-- //dBody -->
+	 <hr>
+
+	      <h2><a style="color:black" href= "{% url 'information_3' %}">응시 전 교통안전교육</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_4' %}">학과/기능/도로주행</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_5' %}">시험장별 응시가능 시험</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_6' %}">운전면허의 종류</a></h2>
+<hr>
+
+</main>
+{% endblock %}

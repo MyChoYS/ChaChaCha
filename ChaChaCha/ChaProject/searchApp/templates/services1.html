@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block headcontent %}
+<title>학원검색</title>
+{% endblock %}
+{% block content %}
+{% load static %}
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Nanum+Brush+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR:200,300,400,500,600,700,900&display=swap');
+</style>
+ <main class="" id="main-collapse">
+     <div class="row">
+         <div class="col-xs-8 section-container-spacer">
+             <h1>지역별 학원 검색</h1>
+             <p>지역별로 학원 검색을 해보자!</p>
+         </div>
+    </div>
+
+    <section class="search-sec">
+        <div class="container">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                <select onchange="if(this.value) location.href=(this.value)" class="form-control search-slt" id="exampleFormControlSelect">
+                                    <option>지역</option>
+                                    <option onchange="location.href ={% url 'services1' %}">서울</option>
+                                    <option onchange="location.href ={% url 'services1' %}">경기</option>
+                                    <option onchange="location.href ={% url 'services1' %}">인천</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                <select onchange="if(this.value) location.href=(this.value)" class="form-control search-slt" id="exampleFormControlSelect2">
+                                    <option>시/군/구</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                <select class="form-control search-slt" id="exampleFormControlSelect1">
+                                    <option>학원명</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                <a onclick="notyet()" class="btn btn-danger wrn-btn">검 색</a>
+                                <a href="{% url 'services1' %}" class="btn btn-danger wrn-btn">재설정</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </section>
+<hr>
+      <!--<img src="{% static 'images/driver-license.png/' %}" > -->
+
+</main>
+<script>
+    function notyet() {
+    alert("위치정보를 입력해주세요")
+    }
+</script>
+
+{% endblock %}

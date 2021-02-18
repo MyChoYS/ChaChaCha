@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+
+{% block headcontent %}
+<title>시험장 후기 목록</title>
+{% endblock %}
+{% block css %}
+
+  table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-family: sans-serif;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+  table thead tr {
+    background-color: #FFC600;
+    color: #ffffff;
+    text-align: left;
+  }
+
+  table th, table td {
+    padding: 12px 40px;
+  }
+
+  table tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+
+  table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+
+  table tbody tr:last-of-type {
+    border-bottom: 2px solid #FFC600;
+  }
+
+  .b1{
+    border: 0
+  }
+  .b1:hover{
+    background-color: #FFC600;
+    color : white;
+  }
+  .b2{
+    border: 0;
+  }
+  .b2:hover{
+    background-color: #ff6360;
+    color : white;
+  }
+{% endblock %}
+{% block content %}
+{% load static %}
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Nanum+Brush+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR:200,300,400,500,600,700,900&display=swap');
+</style>
+
+<main class="" id="main-collapse">
+
+
+  <div class="row">
+    <div class="col-xs-8 section-container-spacer">
+      <h1>시험장 후기 목록</h1>
+      <p>학원 리뷰를 남기고 싶으면 "학원", 시험장 리뷰를 남기고 싶으면 "시험장"를 선택하세요</p>
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 section-container-spacer">
+      <a href="{% url 'review_academy' %}" id="academy" class="btn btn-default" title=""> 학원 </a>
+      <a href="{% url 'review_testsite' %}" id="testsite" class="btn btn-primary" title=""> 시험장 </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-40">
+      {% if testsiteReview %}
+      <table class="beautifulTable">
+        <thead>
+          <tr>
+            <th>제목</th><th>시험장 이름</th><th>위치</th><th>작성일</th><th>수정하기</th><th>삭제하기</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for review in testsiteReview %}
+          <tr>
+            <td>  <span onclick="readTestsite({{ review.pk }});" style="cursor:pointer; color:#ff6360; font-weight: bold">{{ review.title }}</span> </td>
+            <td> {{ review.testsite_id.name }} </td>
+            <td> {{ review.testsite_id.address_full }} </td>
+            <td> {{ review.writedate }} </td>
+            <td><button class="b1" onclick="updateTestsite('{{ review.pk }}')">수정하기</button></td>
+            <td><button class="b1" onclick="deleteTestsite('{{ review.pk }}')">삭제하기</button></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <br>
+      <p>아직 내용이 없습니다</p>
+      {% endif %}
+    </div>
+  </div>
+  <div class="row">
+   <div class="col-xs-12 col-md-40">
+      <h5 style="text-align: center; width: 1078px;">
+	  {% if testsiteReview.has_previous %}
+		<a href='?page={{testsiteReview.number|add:-1}}'>이전페이지</a>
+	  {% endif %}
+	    Page {{ testsiteReview.number }} / {{ testsiteReview.paginator.num_pages }}
+	  {% if testsiteReview.has_next %}
+        <a href='?page={{testsiteReview.number|add:+1}}'>다음페이지</a>
+	  {% endif %}
+      </h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-40" style="text-align: right; width: 1078px;">
+      <div class="create_btn" ><button class="b2" onclick="createTestsite()" >글 작성하기</button></div>
+    </div>
+  </div>
+
+</main>
+<script>
+  function readTestsite(pk){
+    location.href = "{% url 'read_testsite' %}?pk="+pk;
+  }
+
+  function updateTestsite(pk){
+    let result = confirm("수정하시겠습니까?");
+    if(result)
+      location.href = "{% url 'update_testsite1' %}?pk="+pk;
+  }
+  function deleteTestsite(pk){
+    var password = prompt("삭제를 원하시면 비밀번호를 입력하세요");
+    $.getJSON("{% url 'get_testsite_password' %}?pk="+pk, function(jsonObj){
+      if(jsonObj.result==password){
+        location.href = "{% url 'delete_testsite' %}?pk="+pk;
+        alert("삭제 성공!");
+      }
+      else
+        alert("비밀번호가 틀렸습니다!ㅠㅠ");
+    });
+  }
+  function createTestsite(){
+    location.href = "{% url 'create_testsite' %}";
+  }
+
+
+</script>
+
+{% endblock %}

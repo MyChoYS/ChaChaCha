@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+
+{% block headcontent %}
+<title>학원검색</title>
+{% endblock %}
+
+{% block content %}
+
+{% load static %}
+<style>
+@import url('https://fonts.googleapis.com/css?family=Nanum+Brush+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR:200,300,400,500,600,700,900&display=swap');
+    table, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-top: 22px;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+    table {
+            table-layout: fixed;
+            width: 200%;
+            text-align : auto;
+            }
+    table tbody tr:last-of-type {
+        border-bottom: 2px solid #FFC600;
+}
+
+    .fontsize {
+              font-size: 15px;
+                }
+    .fontsize>a { color: blue;
+                }
+</style>
+
+<main class="" id="main-collapse">
+    <div class="row">
+         <div class="col-xs-8 section-container-spacer">
+             <h1>지역별 학원 검색</h1>
+             <p>지역별로 학원 검색을 해보자!</p>
+         </div>
+    </div>
+    <section class="search-sec">
+        <div class="container">
+            <form action="{% url 'services1' %}" method="post" novalidate="novalidate">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                <select onchange="if(this.value) location.href=(this.value);" class="form-control search-slt" id="exampleFormControlSelect">
+                                    <option>{{dosi}}</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                <select onchange="if(this.value) location.href=(this.value)" class="form-control search-slt" id="exampleFormControlSelect2">
+                                    <option>{{gugun}}</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                <select class="form-control search-slt" id="exampleFormControlSelect1">
+                                    <option>{{academy}}</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                <a href="{% url 'services1' %}" class="btn btn-danger wrn-btn">재설정</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        </section>
+<hr>
+     {% for sido in sidos %}
+     {% if sido.name == academy and sido.address_city == dosi and sido.address_town == gugun %}
+    <div style="text-align:center" class="col-xs-12 col-md-6">
+            <table border="1">
+                <tr><th style="text-align:center" >학원명</th><th style="text-align:center" >주소</th><th style="text-align:center" >수강료(1종)</th><th style="text-align:center" >수강료(2종)</th><th style="text-align:center" >셔틀버스</th><th style="text-align:center" >전화번호</th><th style="text-align:center" >사이트URL</tr>
+                <tr><td>{{academy}}</td><td>{{sido.address_full}}</td>
+                    <td>{{sido.fee1}}원</td><td>{{sido.fee2}}원</td>
+                    <td><a href="{{sido.bus}}"><img src="{% static 'images/shuttle.png' %}" width="30px"></a></td>
+                    <td><a href = "tel:{{sido.phone_number}}">{{sido.phone_number}}</a></td>
+                    <td><a href="{{sido.url}}">바로가기</a></td></tr>
+            </table>
+
+
+            <div id="map" style="width:200%;height:550px;"></div>
+                <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1cc2187c8717ffab77eb12ceab5806ae&libraries=services"></script>
+
+                <script>
+                var geocoder = new kakao.maps.services.Geocoder();
+
+                var callback = function(result, status) {
+                    if (status === kakao.maps.services.Status.OK) {
+                        console.log(result);
+                    }
+                };
+
+                geocoder.addressSearch('{{sido.address_full}}',function(result, status) {
+
+                    // 정상적으로 검색이 완료됐으면
+                     if (status === kakao.maps.services.Status.OK) {
+
+                        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+                        // 결과값으로 받은 위치를 마커로 표시합니다
+                        var marker = new kakao.maps.Marker({
+                            map: map,
+                            position: coords
+                        });
+                        // 인포윈도우로 장소에 대한 설명을 표시합니다
+                        var infowindow = new kakao.maps.InfoWindow({
+                            content: '<div style="width:150px;text-align:center;padding:6px 0;">{{sido.name}} 운전전문학원</div>'
+                        });
+                        infowindow.open(map, marker);
+
+                        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+                        map.setCenter(coords);
+                    }
+                });
+                    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+                                    mapOption = {
+                                        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+                                        level: 3 // 지도의 확대 레벨
+                                    };
+                                // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+                                var map = new kakao.maps.Map(mapContainer, mapOption);
+                                ///
+                                </script>
+    </div>
+     {% endif %}
+     {% endfor %}
+
+</main>
+
+{% endblock %}

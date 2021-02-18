@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block headcontent %}
+<title>운전면허</title>
+{% endblock %}
+{% block content %}
+{% load static %}
+<br>
+<br>
+<br>
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Nanum+Brush+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR:200,300,400,500,600,700,900&display=swap');
+ main > h2{
+       font-weight : normal;
+    }
+      h1{
+       font-weight : normal;
+    }
+
+    main > h2 :hover {
+       background-color : #ffffb3;  ;
+    }
+</style>
+ <main class="" id="main-collapse">
+
+    <h2><a style="color:black" href= "{% url 'information_0' %}">면허시험 준비물 가이드</a></h2>
+<hr>
+<div class="contents m01_BA001">
+			<div class="tit_g">
+				<h1><a style="color : black"; href="{% url 'information'  %}">면허시험순서</a></h1>
+			</div>
+			<div class="license_psStep mgt50">
+				<ol type="1">
+					<li class="psStep01">
+							<dl>
+								<dt>응시 전 교통안전교육</dt>
+								<dd>학과 시험 전까지 이수 완료</dd>
+								<dd>준비물 : 신분증</dd>
+								<dd class="btnR1" style="width:220px;"><a href="https://www.safedriving.or.kr/rersafetyed/rerSafetyedScheduleView.do?menuCode=MN-PO-1121">응시 전 교통안전교육 바로가기</a></dd>
+							</dl>
+
+					</li>
+					<li class="psStep02">
+
+							<dl>
+								<dt>신체검사</dt>
+								<dd>시험장내 신체 검사실 또는 병원에서 검사 진행</dd>
+								<dd>(문경, 강릉, 태백, 광양시험장 내 신체검사원 없음)</dd>
+							</dl>
+
+					</li>
+					<li class="psStep03">
+
+							<dl>
+								<dt>학과시험</dt>
+								<dd>준비물 : 응시원서, 신분증,<br>6개월 이내 촬영한 컬러 사진(3.5*4.5cm) 3매</dd>
+								<dd class="btnR1" style="width:180px;"><a href="https://www.safedriving.or.kr/notice/rerBankList.do?menuCode=MN-PO-1151">학과시험 문제은행</a></dd>
+							</dl>
+
+					</li>
+					<li class="psStep04">
+
+							<dl>
+								<dt>기능시험</dt>
+								<dd>준비물 : 응시원서, 신분증<br> 대리접수 : 대리인 신분증 및 위임자의 위임장</dd>
+								<dd class="btnR1" style="width:180px;"><a href="https://www.safedriving.or.kr/rerrest/rerrestScheduleView.do?menuCode=MN-PO-1131">기능시험 접수 바로가기</a></dd>
+							</dl>
+
+					</li>
+					<li class="psStep05">
+
+							<dl>
+								<dt>연습면허 발급</dt>
+								<dd>제 1,2 종 보통면허시험 응시자로 학과시험,<br>장내기능 시험에 모두 합격한 자</dd>
+								<dd class="btnR1" style="width:200px;"><a href="https://www.safedriving.or.kr/exmOnlineRqst/practiceReqForm.do?menuCode=MN-PO-1141">연습면허증 발급 바로가기</a></dd>
+							</dl>
+
+					</li>
+					<li class="psStep06">
+							<dl>
+								<dt>도로주행시험</dt>
+								<dd class="fc_org">불합격 시 : 불합격일로부터 3일 경과 후 재 응시 가능</dd>
+								<dd class="btnR1" style="width:180px;"><a href="https://www.safedriving.or.kr/auth01.do">도로주행 접수 바로가기</a></dd>
+							</dl>
+					</li>
+					<li class="psStep07">
+							<dl>
+								<dt>운전면허증 발급</dt>
+								<dd>제1,2종 보통면허 : 연습면허 취득 후 도로주행시험에 합격한 자<br> 기타 면허 : 학과시험 기능시험에 합격한 자</dd>
+							</dl>
+					</li>
+				</ol>
+			</div>
+
+		</div><!-- //contents -->
+	</div><!-- //dBody -->
+	 <hr>
+<h2><a style="color:black" href= "{% url 'information_2' %}">시험자격/결격/면제</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_3' %}">응시 전 교통안전교육</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_4' %}">학과/기능/도로주행</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_5' %}">시험장별 응시가능 시험</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_6' %}">운전면허의 종류</a></h2>
+<hr>
+
+
+</main>
+{% endblock %}

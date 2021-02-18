@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block headcontent %}
+<title>운전면허</title>
+{% endblock %}
+{% block content %}
+{% load static %}
+<br>
+<br>
+<br>
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Nanum+Brush+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR:200,300,400,500,600,700,900&display=swap');
+
+    main > h2 :hover {
+       background-color : #ffffb3;  ;
+    }
+    main > h2{
+       font-weight : normal;
+    }
+      h1{
+       font-weight : normal;
+    }
+</style>
+ <main class="" id="main-collapse">
+
+    <h2><a style="color:black" href= "{% url 'information_0' %}">면허시험 준비물 가이드</a></h2>
+<hr>
+
+    <h2><a style="color:black" href= "{% url 'information_1' %}">면허시험 순서</a></h2>
+<hr>
+<div class="contents m01_DB001">
+			<div class="tit_g">
+				<h1><a style="color : black" href="{% url 'information' %}">시험자격/결격/면제</a></h1>
+			</div>
+			<ul class="tabs_ui col4">
+				<li class="current"><a href="{% url 'information_2_1' %}">시험 면제</a></li>
+				<li><a href="{% url 'information_2_2' %}">운전면허 결격사유</a></li>
+				<li><a href="{% url 'information_2' %}">응시 제한</a></li>
+				<li><a href="{% url 'information_2_4' %}">시험자격</a></li>
+			</ul>
+<hr>
+			<div class="conTab_ui drivExam03">
+				<h4 style="color:orange">응시 제한</h4>
+				<p class="mgt30">※ 운전면허 행정처분 시 또는 기타 도로교통법 위반시 이의 경중에 따라 일정 기간 응시하지 못하게 하는 제도 입니다.</p>
+				<ul class="ul_list2 type mgt30">
+					<li><span>제한기간</span>
+						<div>
+							<ul class="type">
+								<li><strong>- 5년 제한</strong>
+									<span>- 무면허, 음주운전, 약물복용, 과로 운전, 공동위험행위 중 사상사고 야기 후 필요한 구호조치를 하지 않고 도주</span>
+								</li>
+								<li><strong>- 4년 제한</strong>
+									<span>- 5년 제한 이외의 사유로 사상사고 야기 후 도주</span>
+								</li>
+								<li><strong>- 3년 제한</strong>
+									<span>- 음주운전을 하다가 2회 이상 교통사고를 야기</span><br/>
+									<span>- 자동차 이용 범죄, 자동차 강·절취한 자가 무면허로 운전한 경우</span>
+								</li>
+								<li><strong>- 2년 제한</strong>
+									<ul>
+										<li>- 3회 이상 무면허운전</li>
+										<li>- 운전면허시험 대리 응시를 한 경우</li>
+										<li>- 운전면허시험 대리 응시를 하고 원동기면허를 취득하고자 하는 경우</li>
+										<li>- 공동위험행위로 2회 이상으로 면허취소 시</li>
+										<li>- 부당한 방법으로 면허 취득 또는 이용, 운전면허시험 대리 응시</li>
+										<li>- 다른 사람의 자동차를 강·절취한 자</li>
+										<li>- 음주운전 2회 이상, 측정 불응 2회 이상 자</li>
+										<li>- 음주운전, 측정불응을 하다가 교통사고를 일으킨 경우</li>
+										<li>- 운전면허시험, 전문학원 강사자격시험, 기능검정원 자격시험에서 부정행위를 하여 해당 시험이 무효로 처리된 자</li>
+									</ul>
+									<span> ※ 도로교통법 제84조의2(부정행위자에 대한 조치)</span>
+								</li>
+								<li><strong>- 1년 제한</strong>
+									<ul>
+										<li>- 무면허운전</li>
+										<li>- 공동위험행위로 운전면허가 취소된 자가 원동기면허를 취득하고자 하는 경우</li>
+										<li>- 자동차 이용 범죄</li>
+										<li>- 2년 제한 이외의 사유로 면허가 취소된 경우</li>
+									</ul>
+								</li>
+								<li><strong>- 6개월 제한</strong>
+									<span>- 단순 음주, 단순 무면허, 자동차이용범죄로 면허취소 후 원동기면허를 취득하고자 하는 경우</span>
+								</li>
+								<li><strong>- 바로 면허시험에 응시 가능한 경우</strong>
+									<span>- 적성검사 또는 면허 갱신 미필자</span><br/>
+									<span>- 2종에 응시하는 1종 면허 적성검사 불합격자</span>
+								</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+
+			</div>
+
+		</div><!-- //contents -->
+	</div><!-- //dBody -->
+
+	 <hr>
+
+	      <h2><a style="color:black" href= "{% url 'information_3' %}">응시 전 교통안전교육</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_4' %}">학과/기능/도로주행</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_5' %}">시험장별 응시가능 시험</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_6' %}">운전면허의 종류</a></h2>
+<hr>
+
+</main>
+{% endblock %}

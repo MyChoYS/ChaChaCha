@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block headcontent %}
+<title>시험장 후기 목록</title>
+{% endblock %}
+{% block css %}
+
+{% endblock %}
+{% block content %}
+{% load static %}
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Nanum+Brush+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR:200,300,400,500,600,700,900&display=swap');
+</style>
+
+<main class="" id="main-collapse">
+    <div class="row">
+        <div class="col-xs-8 section-container-spacer">
+            <h1>시험장 후기</h1>
+            <p>시험장 후기보기</p>
+            <hr>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-md-4 section-container-spacer">
+            <h3>시험장</h3>
+            <blockquote>
+                <h5>{{ review.testsite_id.name }}(시험장)</h5>
+            </blockquote>
+        </div>
+        <div class="col-xs-12 col-md-4 section-container-spacer">
+            <h3>제목</h3>
+            <blockquote>
+                <h5>{{ review.title }}</h5>
+            </blockquote>
+        </div>
+        <div class="col-xs-12 col-md-4 section-container-spacer">
+            <h3>내용</h3>
+            <blockquote>
+                <h5>{{ review.content }}</h5>
+            </blockquote>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-4 section-container-spacer">
+        </div>
+        <div class="col-xs-12 col-md-4 section-container-spacer">
+            <a href="{% url 'review_academy' %}" class="btn btn-primary" title=""> 뒤로가기 </a>
+        </div>
+        <div class="col-xs-12 col-md-4 section-container-spacer">
+        </div>
+    </div>
+</main>
+
+{% endblock %}

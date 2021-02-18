@@ -1,0 +1,240 @@
+{% extends 'base.html' %}
+
+{% block headcontent %}
+<title>운전면허</title>
+{% endblock %}
+{% block content %}
+{% load static %}
+<br>
+<br>
+<br>
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Nanum+Brush+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR:200,300,400,500,600,700,900&display=swap');
+
+    main > h2 :hover {
+       background-color : #ffffb3;  ;
+    }
+    main > h2{
+       font-weight : normal;
+    }
+      h1{
+       font-weight : normal;
+    }
+</style>
+ <main class="" id="main-collapse">
+
+    <h2><a style="color:black" href= "{% url 'information_0' %}">면허시험 준비물 가이드</a></h2>
+<hr>
+
+    <h2><a style="color:black" href= "{% url 'information_1' %}">면허시험 순서</a></h2>
+<hr>
+<div class="contents m01_DB001">
+			<div class="tit_g">
+				<h1><a style="color : black" href="{% url 'information' %}">시험자격/결격/면제</a></h1>
+			</div>
+			<ul class="tabs_ui col4">
+				<li class="current"><a href="{% url 'information_2' %}">시험 면제</a></li>
+				<li><a href="{% url 'information_2_2' %}">운전면허 결격사유</a></li>
+				<li><a href="{% url 'information_2_3' %}">응시 제한</a></li>
+				<li><a href="{% url 'information_2_4' %}">시험자격</a></li>
+			</ul>
+	<hr>
+			<div class="conTab_ui drivExam04">
+				<h4 style="color:orange" class="tit_type1">시험 면제</h4>
+				<p class="mgt30">● 표시된 절차만 응시 (● 표시가 없는 절차는 면제)</p>
+				<table border="1px" class="data_tbl mgt10 ">
+					<caption>시험면제 안내에 관한 내용 입니다</caption>
+					<colgroup>
+						<col width="*">
+						<col width="25%">
+						<col width="7%">
+						<col width="7%">
+						<col width="7%">
+						<col width="7%">
+					</colgroup>
+					<thead>
+						<tr>
+							<th scope="col" rowspan="2">대상자</th>
+							<th scope="col" rowspan="2">받고자 하는 면허</th>
+							<th scope="col" colspan="4">시험과목</th>
+						</tr>
+						<tr>
+							<th scope="col">신검</th>
+							<th scope="col">학과</th>
+							<th scope="col">기능</th>
+							<th scope="col">주행</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>국내 면허 인정 국가의 권한 있는 기관에서 교부한 운전면허증 소지자</td>
+							<td>제2종 보통면허</td>
+							<td>●</td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>국내 면허 불인정국가의 권한 있는 기관에서 교부한 운전면허증 소지자</td>
+							<td>제2종 보통면허</td>
+							<td>●</td>
+							<td>●</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td rowspan="2">군복무 중 6월 이상 군의 자동차 등 운전 경력자</td>
+							<td>제1·2종 보통면허 외 면허</td>
+							<td>●</td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>제1·2종 보통면허</td>
+							<td>●</td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>적성검사·면허 갱신을 하지 않아 면허 취소 후 5년 이내에 재 응시 하는 사람</td>
+							<td>취소된 면허와 동일한 1종류의 면허</td>
+							<td>●</td>
+							<td>●</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>제1종 대형면허 소지자</td>
+							<td>제1종 특수 면허, 제1·2종 소형면허</td>
+							<td></td>
+							<td></td>
+							<td>●</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td rowspan="2">제1종 특수면허 소지자</td>
+							<td>제1종 대형면허, 제1·2종 소형면허</td>
+							<td></td>
+							<td></td>
+							<td>●</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>제1종 보통면허</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>●</td>
+						</tr>
+						<tr>
+							<td rowspan="2">제1종 보통면허 소지자</td>
+							<td>제1종 대형면허·특수면허</td>
+							<td>●</td>
+							<td></td>
+							<td>●</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>제1·2종 소형면허</td>
+							<td></td>
+							<td></td>
+							<td>●</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td rowspan="3">제2종 보통면허 소지자</td>
+							<td>제1종 특수·대형·소형면허</td>
+							<td>●</td>
+							<td></td>
+							<td>●</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>제2종 소형면허</td>
+							<td></td>
+							<td></td>
+							<td>●</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>제1종 보통면허</td>
+							<td>●</td>
+							<td></td>
+							<td></td>
+							<td>●</td>
+						</tr>
+						<tr>
+							<td>제2종 소형면허 또는 원동기장치자전거 면허 소지자</td>
+							<td>제2종 보통면허</td>
+							<td></td>
+							<td>●</td>
+							<td>●</td>
+							<td>●</td>
+						</tr>
+						<tr>
+							<td>원동기장치자전거 면허 소지자</td>
+							<td>제2종 소형면허</td>
+							<td></td>
+							<td></td>
+							<td>●</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>제2종 보통면허 소지자가 면허 신청일로부터 소급하여<br>7년간 교통사고를 일으킨 사실이 없는 사람</td>
+							<td>제1종 보통면허</td>
+							<td>●</td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>제1종 운전면허 소지자가 신체장애 등으로 제1종 운전면허 적성 기준에 미달된 자</td>
+							<td>제2종 운전면허</td>
+							<td>●</td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>타인에게 운전면허 대여로 취소된 사람, 무등록차량을 운전하여 취소된 사람</td>
+							<td>취소된 면허와 동일한 1종류의 면허</td>
+							<td>●</td>
+							<td>●</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>군사분계선 이북지역에서 운전면허를 받은 사실을 통일부 장관이 <br>확인서를 첨부하여 운전면허시험기관의 장에게 통지한 사람</td>
+							<td>제2종 보통면허</td>
+							<td>●</td>
+							<td>●</td>
+							<td></td>
+							<td>●</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div><!-- //contents -->
+	</div><!-- //dBody -->
+
+	 <hr>
+
+	      <h2><a style="color:black" href= "{% url 'information_3' %}">응시 전 교통안전교육</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_4' %}">학과/기능/도로주행</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_5' %}">시험장별 응시가능 시험</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_6' %}">운전면허의 종류</a></h2>
+<hr>
+
+
+</main>
+{% endblock %}

@@ -1,0 +1,390 @@
+{% extends 'base.html' %}
+
+{% block headcontent %}
+<title>내 주변 시험장</title>
+{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Nanum+Brush+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR:200,300,400,500,600,700,900&display=swap');
+
+  .wrap_button {position:absolute;left:15px;top:12px;z-index:2}
+  .btn_comm {float:left;display:block;width:70px;height:27px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/sample_button_control.png) no-repeat}
+  .btn_resetMap {background-position:-69px 0;}
+
+    table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    }
+
+
+    table th,
+    table td {
+        padding: 12px 44px;
+    }
+
+    table tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+
+    table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+    }
+
+    table tbody tr:last-of-type {
+        border-bottom: 2px solid #FFC600;
+    }
+
+
+    * {box-sizing: border-box}
+    body {sans-serif; margin:0}
+    .mySlides {display: none}
+    img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+  height: 622px;
+}
+.mySlides {
+    height: 100%;
+    }
+.mySlides>img {
+    height: 100%
+    }
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+
+</style>
+
+<main class="" id="main-collapse">
+    <div class="row">
+         <div class="col-xs-8 section-container-spacer">
+             <h1>내 주변 시험장</h1>
+             <p>내 주변에는 어떤 시험장이 있을까?</p>
+             <hr>
+         </div>
+    </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+        <p style="margin-top:-12px">
+            <b>별표를 클릭하시면 학원과 코스 정보가 표시됩니다.</b>
+        </p>
+        <div id="map" class= "col-12" style="height:790px;"></div>
+        <div class="wrap_button">
+            <br>
+            <a href="javascript:;" class="btn_comm btn_resetMap" onclick="resetKakaoMap()"></a> <!-- 지도 초기화 버튼입니다 -->
+        </div>
+    </div>
+
+  <div class="col-xs-12 col-md-6">
+
+            <table>
+                <tr><td width="20%">시험장 이름</td><td id = 'name' class = 'fontsize'></td></tr>
+                <tr><td width="20%">시험장 위치</td><td id = 'location' class = 'fontsize'></td></tr>
+                <tr><td width="25%">찾아오시는 길</td><td id = 'url' class = 'fontsize'></td></tr>
+            </table>
+               <!--- 여기가 시험장 사진 슬라이드--->
+
+            <div class="slideshow-container">
+
+            <div class="mySlides">
+                <div class="numbertext">1 / 4</div>
+                <img id = 'courseA' src="{% static 'images/1.jpg' %}" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">2 / 4</div>
+                    <img id = 'courseB' src="{% static 'images/1.jpg' %}" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">3 / 4</div>
+                     <img id = 'courseC' src="{% static 'images/1.jpg' %}" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+             <div class="numbertext">4 / 4</div>
+                 <img id = 'courseD' src="{% static 'images/1.jpg' %}" style="width:100%">
+            </div>
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+</div>
+
+    <!--- 시험장 슬라이드 끝 --->
+
+
+        </div>
+  </div>
+
+
+</main>
+
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1cc2187c8717ffab77eb12ceab5806ae&libraries=services"></script>
+<script>
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+
+
+    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+        mapOption = {
+            center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+            level: 8 // 지도의 확대 레벨
+        };
+
+    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+    // HTML5의 geolocation으로 사용할 수 있는지 확인합니다
+    if (navigator.geolocation) {
+
+        // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+        navigator.geolocation.getCurrentPosition(function(position) {
+
+            var lat = position.coords.latitude, // 위도
+                lon = position.coords.longitude; // 경도
+
+            var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+                message = '<div style="padding:5px;">현재 위치</div>'; // 인포윈도우에 표시될 내용입니다
+
+            // 마커와 인포윈도우를 표시합니다
+            displayMarker(locPosition, message);
+        });
+
+    } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+
+        var locPosition = new kakao.maps.LatLng(33.450701, 126.570667),
+            message = 'geolocation을 사용할수 없어요..'
+
+        displayMarker(locPosition, message);
+    }
+
+var geocoder = new kakao.maps.services.Geocoder();
+var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+
+    // 마커 이미지의 이미지 크기 입니다
+    var imageSize = new kakao.maps.Size(24, 35);
+
+    // 마커 이미지를 생성합니다
+    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+    {% for location in TestSite %}
+    geocoder.addressSearch('{{location.address_full}}', function(result, status) {
+
+    // 정상적으로 검색이 완료됐으면
+     if (status === kakao.maps.services.Status.OK) {
+
+        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+        var marker = new kakao.maps.Marker({
+            map: map, // 마커를 표시할 지도
+            position: coords,
+            title : '{{location.name}}', // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+                    image : markerImage // 마커 이미지
+            });
+             // 마커에 표시할 인포윈도우를 생성합니다
+    var infowindow = new kakao.maps.InfoWindow({
+                             content: '<div>{{location.name}}</div>'// 인포윈도우에 표시할 내용
+    });
+
+    // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+    // 이벤트 리스너로는 클로저를 만들어 등록합니다
+    // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+    kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+    kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+    kakao.maps.event.addListener(marker, 'click', clickevent('{{location.name}}','{{location.address_full}}','{{location.url}}','{{location.courseA}}','{{location.courseB}}','{{location.courseC}}','{{location.courseD}}'));
+    }
+    });
+    {% endfor %}
+
+// 인포윈도우를 표시하는 클로저를 만드는 함수입니다
+function makeOverListener(map, marker, infowindow) {
+    return function() {
+        infowindow.open(map, marker);
+    };
+}
+
+function clickevent(name, address, url, courseA, courseB, courseC, courseD) {
+    return function(){
+        document.getElementById('name').innerText = name
+        document.getElementById('location').innerText = address
+        document.getElementById('url').innerHTML = `<a href = '${url}' target='_blank'> 홈페이지 이동 </a>`
+        document.getElementById('courseA').src = courseA
+        document.getElementById('courseB').src = courseB
+        document.getElementById('courseC').src = courseC
+        document.getElementById('courseD').src = courseD
+        };
+    }
+// 인포윈도우를 닫는 클로저를 만드는 함수입니다
+function makeOutListener(infowindow) {
+    return function() {
+        infowindow.close();
+    };
+}
+
+
+    // 지도에 마커와 인포윈도우를 표시하는 함수입니다
+    function displayMarker(locPosition, message) {
+
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+            map: map,
+            position: locPosition
+        });
+
+        var iwContent = message, // 인포윈도우에 표시할 내용
+            iwRemoveable = true;
+
+        // 인포윈도우를 생성합니다
+        var infowindow = new kakao.maps.InfoWindow({
+            content : iwContent,
+            removable : iwRemoveable
+        });
+
+        // 인포윈도우를 마커위에 표시합니다
+        infowindow.open(map, marker);
+
+        // 지도 중심좌표를 접속위치로 변경합니다
+        map.setCenter(locPosition);
+    }
+
+//지도 초기화 이벤트 핸들러
+function resetKakaoMap(){
+    if (navigator.geolocation) {
+        // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var lat = position.coords.latitude, // 위도
+                lon = position.coords.longitude; // 경도
+            var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+                message = '<div style="padding:5px;">현 위치</div>'; // 인포윈도우에 표시될 내용입니다
+
+            // 마커와 인포윈도우를 표시합니다
+            displayMarker(locPosition, message);
+        });
+
+    } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+
+        var locPosition = new kakao.maps.LatLng(33.450701, 126.570667),
+            message = 'geolocation을 사용할 수 없습니다.'
+
+        displayMarker(locPosition, message);
+    }
+}
+</script>
+{% endblock %}

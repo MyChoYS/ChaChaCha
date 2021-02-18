@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+
+{% block headcontent %}
+<title>운전면허</title>
+{% endblock %}
+{% block content %}
+{% load static %}
+<br>
+<br>
+<br>
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Nanum+Brush+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR:200,300,400,500,600,700,900&display=swap');
+
+    main > h2 :hover {
+       background-color : #ffffb3;  ;
+    }
+    main > h2{
+       font-weight : normal;
+    }
+      h1{
+       font-weight : normal;
+    }
+</style>
+ <main class="" id="main-collapse">
+
+    <h2><a style="color:black" href= "{% url 'information_0' %}">면허시험 준비물 가이드</a></h2>
+<hr>
+
+    <h2><a style="color:black" href= "{% url 'information_1' %}">면허시험 순서</a></h2>
+<hr>
+
+    <h2><a style="color:black" href= "{% url 'information_2' %}">시험자격/결격/면제</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_3' %}">응시 전 교통안전교육</a></h2>
+<hr>
+
+     <h1><a style="color:black" href= "{% url 'information' %}">학과/기능/도로주행</a></h1>
+
+     <ul class="tabs_ui col4">
+				<li class="current"><a href="{% url 'information_4_1' %}">학과시험</a></li>
+				<li><a href="{% url 'information_4_2' %}">기능시험</a></li>
+				<li><a href="{% url 'information_4' %}">도로주행</a></li>
+			</ul>
+     <hr>
+<h4 style="color : orange" class="tit_type1">도로주행시험</h4>
+					<ul class="ul_list2">
+						<li><span>면허종별</span>- 1종 보통/2종 보통(수동, 자동)</li>
+						<li><span>준비물</span>
+							<div>
+								<ul>
+									<li>- 온라인 접수 또는 현장 예약 접수</li>
+									<li>- 시험 당일 연습면허 발급·부착된 응시원서, 신분증 지참</li>
+								</ul>
+							</div>
+						</li>
+						<li><span>합격기준</span>
+							<div>
+								<ul>
+									<li>- 70점 이상 시 합격</li>
+								</ul>
+							</div>
+						</li>
+						<li><span>수수료 </span>- 25,000원</li>
+						<li><span>시험 코스</span>
+							<div>
+								<ul>
+									<li>- 총 연장거리 5km 이상인 4개 코스 중 추첨을 통한 1개 코스 선택</li>
+									<li>- 내비게이션 음성 길 안내</li>
+								</ul>
+							</div>
+						</li>
+						<li><span>시험 내용 </span>- 긴급자동차 양보, 어린이보호구역, 지정 속도 위반 등 안전운전에 필요한 57개 항목을 평가</li>
+
+
+						<li><span>실격기준</span>
+							<div>
+								<ul>
+									<li>- 3회 이상 “출발 불능”, “클러치 조작 불량으로 인한 엔진 정지”, “급브레이크 사용”,<br> “급조작·급출발” 또는 그 밖의 사유로 운전능력이 현저하게 부족한 것으로 인정할 수 있는 행위를 한 경우</li>
+									<li>- 안전거리 미확보나 경사로에서 뒤로 1미터 이상 밀리는 현상 등 운전능력 부족으로 <br>교통사고를 일으킬 위험이 현저한 경우 또는 교통사고를 야기한 경우</li>
+									<li>- 음주, 과로, 마약, 대마 등 약물의 영향 이나 휴대전화 사용 등으로 정상적으로 운전하지 못할<br> 우려가 있거나 교통안전과 소통을 위한 시험관의 지시 및 통제에 불응한 경우</li>
+									<li>- 신호 또는 지시에 따르지 않은 경우</li>
+									<li>- 보행자 보호의무 등을 소홀히 한 경우</li>
+									<li>- 어린이 보호구역, 노인 및 장애인 보호구역에 지정되어 있는 최고 속도를 초과한 경우</li>
+									<li>- 도로의 중앙으로부터 우측 부분을 통행하여야 할 의무를 위반한 경우</li>
+									<li>- 법령 또는 안전표지 등으로 지정되어 있는 최고 속도를 시속 10킬로미터 초과한 경우</li>
+									<li>- 긴급자동차의 우선통행 시 일시정지하거나 진로를 양보하지 않은 경우</li>
+									<li>- 어린이 통학버스의 특별보호의무를 위반한 경우</li>
+									<li>- 시험시간 동안 좌석안전띠를 착용하지 않은 경우</li>
+								</ul>
+							</div>
+						</li>
+						<li><span>주의사항</span>
+							<div>
+								<ul>
+									<li>- 연습운전면허 유효기간(발급일로부터 1년) 이내 도로주행시험에 합격하여야 함.</li>
+									<li>- 연습운전면허 유효기간이 지났을 경우, 도로주행시험 접수가 불가능하며 학과시험, 기능 시험에 재응시하여야 함.<br> (응시 전 교통안전교육은 재수강 불필요)</li>
+								</ul>
+							</div>
+						</li>
+						<li><span>외국어 음성 <br>지원 서비스(코스안내) <br>제공</span>
+							<div>
+								<ul>
+									<li>- 영어</li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<!--// subTab1 -->
+
+				<!-- subTab2 -->
+				<div class="rf2" style="display:none">
+					<h2 class="tit_type1">도로주행 시험안내 동영상</h2>
+					<ul class="explay_List">
+						<!-- <li>
+							<a href="javascript:fn_VideoPage(1);">
+								<span></span>
+								<img src="http://img.youtube.com/vi/3XvxOvQysFA/1.jpg" alt="도로주행 전자채점 안내 동영상 미리보기 이미지">
+								<img src="/images/pc/kr_ico_play.png" alt="동영상 이미지">
+							</a>
+							<p>도로주행 전자채점 안내 동영상</p>
+						</li> -->
+						<li>
+							<a href="javascript:fn_VideoPage(2);">
+								<span></span>
+								<img src="http://img.youtube.com/vi/fGmv9_paqr0/1.jpg" alt="도로주행 시험안내 동영상(시행일 : 2016.12.22) 동영상 미리보기 이미지">
+								<img src="/images/pc/kr_ico_play.png" alt="동영상 이미지">
+							</a>
+							<p>도로주행 시험안내 동영상(시행일 : 2016.12.22)</p>
+						</li>
+					</ul>
+				</div>
+				<!--// subTab2 -->
+			</div>
+		</div><!-- //contents -->
+	</div><!-- //dBody -->
+
+<form id = "postForm" method="post">
+<input type="hidden" id = "sel" name = "sel"/>
+</form>
+
+
+
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_5' %}">시험장별 응시가능 시험</a></h2>
+<hr>
+
+     <h2><a style="color:black" href= "{% url 'information_6' %}">운전면허의 종류</a></h2>
+<hr>
+
+</main>
+{% endblock %}

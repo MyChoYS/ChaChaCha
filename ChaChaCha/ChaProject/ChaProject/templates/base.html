@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <meta content="description" name="description">
+    <meta name="google" content="notranslate" />
+    <meta content="Mashup templates have been developped by Orson.io team" name="author">
+
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- icon 그림은 여기에 -->
+    <link href="{% static 'images/apple-icon-180x180.png' %}" rel="apple-touch-icon">
+    <link href="{% static 'images/favicon.ico' %}" rel="icon">
+
+    <script type="text/javascript" src="{% static 'js/main.85741bff.js' %}"></script>
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+    <link href="{% static 'css/main.82cfd66e.css' %}" rel="stylesheet">
+    {% block headcontent %}{% endblock %}
+    <style>
+@import url('https://fonts.googleapis.com/css?family=Nanum+Brush+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR:200,300,400,500,600,700,900&display=swap');
+@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
+
+        {% block css %}{% endblock %}
+        /*
+        .sidebar {
+            background-color : #ffcc00;
+            /*background-image : linear-gradient(to bottom, #ffcc00, white);*/
+        }
+        .site-brand{
+            text-shadow : 1px 1px 1px white;
+        }
+        */
+
+
+    p {
+        font-size : 30px;
+        color : black;
+        font-family: 'Nanum Brush Script', cursive;
+    }
+
+    .teamname {
+        font-size : 20px;
+        color : black;
+        font-family: 'Nanum Brush Script', cursive;
+    }
+
+    .hashtag {
+         font-size : 20px;
+         color : black;
+         font-family: 'Nanum Brush Script', cursive
+    }
+    </style>
+</head>
+<body>
+     <!-- 왼쪽 바 content -->
+    <header class="">
+        <div class="navbar navbar-default visible-xs">
+            <button type="button" class="navbar-toggle collapsed">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="{% url 'home' %}" class="navbar-brand">Mashup Template</a>
+        </div>
+        <nav class="sidebar">
+            <div class="navbar-collapse" id="navbar-collapse">
+                <div class="site-header hidden-xs">
+                    <a class="site-brand" href="{% url 'home' %}" title="">
+                        <img class="img-responsive site-logo" alt="" src="{% static 'images/carcarcar.png' %}" width="170">
+                    </a>
+                    <p class = "teamname"> by. 팀 지도편달 </p>
+                </div>
+                <br>
+                <ul class="nav" style=" line-height: 2.5em;">
+                    <li style = "font-family:'NanumSquare', sans-serif; transform: skew(-0.001deg); font-size:17px;" ><a href="{% url 'home' %}" title="">홈</a></li>
+                    <li style = "font-family:'NanumSquare', sans-serif; transform: skew(-0.001deg); font-size:17px;"><a href="{% url 'information' %}" title="">운전면허 시험 정보</a></li>
+                    <li style = "font-family:'NanumSquare', sans-serif; transform: skew(-0.001deg); font-size:17px;"><a href="{% url 'services1' %}" title="">지역별 학원 검색</a></li>
+                    <li style = "font-family:'NanumSquare', sans-serif; transform: skew(-0.001deg); font-size:17px;"><a href="{% url 'services2' %}" title="">내 주변 학원</a></li>
+                    <li style = "font-family:'NanumSquare', sans-serif; transform: skew(-0.001deg); font-size:17px;"><a href="{% url 'services3' %}" title="">내 주변 시험장</a></li>
+                    <li style = "font-family:'NanumSquare', sans-serif; transform: skew(-0.001deg); font-size:17px;"><a href="{% url 'review_academy' %}" title="">학원/시험장 후기</a></li>
+                </ul>
+                <nav class="nav-footer">
+                     <!--
+
+                    <p class="nav-footer-social-buttons">
+                        <a class="fa-icon" href="https://www.instagram.com/" title="">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                        <a class="fa-icon" href="https://dribbble.com/" title="">
+                            <i class="fa fa-dribbble"></i>
+                        </a>
+                        <a class="fa-icon" href="https://twitter.com/" title="">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </p>
+                            -->
+
+                    <p class="hashtag">#Awesome #지도편달</p>
+                </nav>
+            </div>
+        </nav>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+            navbarToggleSidebar();
+            navActivePage();
+        });
+    </script>
+</body>
+</html>
