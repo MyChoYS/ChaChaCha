@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
+import basicApp
 urlpatterns = [
     # homeApp은 지우고.
     # path 이름 좀 바꿔주기.
+    path('/',basicApp.views.home),
     path('admin/', admin.site.urls),
     #path('homeApp/', include('homeApp.urls')), # homeApp은 그냥 테스트용 앱...!
     path('basicApp/', include('basicApp.urls')),
